@@ -19,11 +19,36 @@ System.register(["@angular/core"], function(exports_1, context_1) {
             }],
         execute: function() {
             AppComponent = class AppComponent {
+                constructor() {
+                    this.artists = [
+                        {
+                            name: 'Ayush Mahadev',
+                            school: 'Sree Narayana Public School',
+                        }, {
+                            name: 'Asif',
+                            school: 'Thalasseri briyani'
+                        }, {
+                            name: 'Vibin',
+                            school: 'Angamali Diaries'
+                        }
+                    ];
+                }
+                addArtist(value) {
+                    if (value !== '') {
+                        this.artists.push({
+                            name: value,
+                            school: 'Some Public School'
+                        });
+                    }
+                }
+                onClick(e) {
+                    this.name = e.target.innerHTML;
+                }
             };
             AppComponent = __decorate([
                 core_1.Component({
                     selector: 'app',
-                    template: '<h1>Artist Directory</h1>'
+                    templateUrl: './partials/app.html'
                 }), 
                 __metadata('design:paramtypes', [])
             ], AppComponent);
